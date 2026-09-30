@@ -4,8 +4,7 @@
 
 <h1>AIDIN Hand Gen2 GUI</h1>
 
-AIDIN Hand Gen2를 조작하고 모니터링하는 데스크톱 GUI입니다. Standalone(SDK)과 ROS 2 두 가지 방식으로
-사용할 수 있습니다.
+촉각 센서가 통합된 로봇 핸드 AIDIN Hand Gen2용 GUI입니다. SDK나 ROS 2를 통해 로봇 핸드에 연결합니다.
 
 [![SDK](https://img.shields.io/badge/SDK-0.7.x-blue)](https://github.com/aidinrobotics/aidin-hand2-sdk) [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)](#1-system-requirements)
 

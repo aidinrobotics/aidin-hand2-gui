@@ -4,8 +4,8 @@
 
 <h1>AIDIN Hand Gen2 GUI</h1>
 
-A desktop GUI for controlling and monitoring the AIDIN Hand Gen2, available in Standalone (SDK) and ROS 2
-modes.
+The GUI for the AIDIN Hand Gen2, a robot hand with integrated tactile sensors. It connects to the robot
+hand through the SDK or ROS 2.
 
 [![SDK](https://img.shields.io/badge/SDK-0.7.x-blue)](https://github.com/aidinrobotics/aidin-hand2-sdk) [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)](#1-system-requirements)
 
