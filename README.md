@@ -36,9 +36,9 @@ hand through the SDK or ROS 2.
 | Component | Requirement |
 |---|---|
 | Operating System | Ubuntu 22.04 (amd64 · arm64) |
-| SDK | `aidin_hand2` 0.7.x, installed in `/usr/local` |
-| CAN interface | For driving the robot hand through the SDK: USB CAN-FD adapter (SocketCAN), 1 Mbit/s nominal, 5 Mbit/s data phase |
-| ROS 2 | For connecting through ROS 2: ROS 2 Humble and [aidin-hand2-ros2](https://github.com/aidinrobotics/aidin-hand2-ros2) on the PC the robot hand is connected to |
+| SDK | [aidin-hand2-sdk](https://github.com/aidinrobotics/aidin-hand2-sdk) 0.7.x, installed in `/usr/local` |
+| CAN interface | USB CAN-FD adapter (SocketCAN), 1 Mbit/s nominal, 5 Mbit/s data phase |
+| ROS 2 (optional) | ROS 2 Humble, [aidin-hand2-ros2](https://github.com/aidinrobotics/aidin-hand2-ros2) |
 
 ## 2. Install the dependencies
 

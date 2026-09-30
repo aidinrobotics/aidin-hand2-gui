@@ -35,9 +35,9 @@
 | Component | Requirement |
 |---|---|
 | Operating System | Ubuntu 22.04 (amd64 · arm64) |
-| SDK | `aidin_hand2` 0.7.x, `/usr/local`에 설치 |
-| CAN interface | SDK로 로봇 핸드를 구동할 때 USB CAN-FD adapter (SocketCAN), nominal 1 Mbit/s, data phase 5 Mbit/s |
-| ROS 2 | ROS 2로 연결할 때 로봇 핸드를 연결한 PC에 ROS 2 Humble과 [aidin-hand2-ros2](https://github.com/aidinrobotics/aidin-hand2-ros2) |
+| SDK | [aidin-hand2-sdk](https://github.com/aidinrobotics/aidin-hand2-sdk) 0.7.x, `/usr/local`에 설치 |
+| CAN interface | USB CAN-FD adapter (SocketCAN), nominal 1 Mbit/s, data phase 5 Mbit/s |
+| ROS 2 (optional) | ROS 2 Humble, [aidin-hand2-ros2](https://github.com/aidinrobotics/aidin-hand2-ros2) |
 
 ## 2. Install the dependencies
 
