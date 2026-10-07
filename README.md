@@ -7,7 +7,7 @@
 The GUI for the AIDIN Hand Gen2, a robot hand with integrated tactile sensors. It connects to the robot
 hand through the SDK or ROS 2.
 
-[![SDK](https://img.shields.io/badge/SDK-0.7.x-blue)](https://github.com/aidinrobotics/aidin-hand2-sdk) [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)](#1-system-requirements)
+[![SDK](https://img.shields.io/badge/SDK-0.8.x-blue)](https://github.com/aidinrobotics/aidin-hand2-sdk) [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)](#1-system-requirements)
 
 [Install](#2-install-the-dependencies) | [Tutorial](#4-tutorial) | [Official Site](https://www.aidinrobotics.co.kr/) | English | [한국어](README.ko.md)
 
@@ -36,7 +36,7 @@ hand through the SDK or ROS 2.
 | Component | Requirement |
 |---|---|
 | Operating System | Ubuntu 22.04 (amd64 · arm64) |
-| SDK | [aidin-hand2-sdk](https://github.com/aidinrobotics/aidin-hand2-sdk) 0.7.x, installed in `/usr/local` |
+| SDK | [aidin-hand2-sdk](https://github.com/aidinrobotics/aidin-hand2-sdk) 0.8.x, installed in `/usr/local` |
 | CAN interface | USB CAN-FD adapter (SocketCAN), 1 Mbit/s nominal, 5 Mbit/s data phase |
 | ROS 2 (optional) | ROS 2 Humble, [aidin-hand2-ros2](https://github.com/aidinrobotics/aidin-hand2-ros2) |
 
@@ -52,12 +52,12 @@ them.
 
 ### 2.1 Install the SDK
 
-Install the packages the SDK builds with and get the SDK 0.7 release.
+Install the packages the SDK builds with and get the SDK 0.8 release.
 
 ```bash
 sudo apt update
 sudo apt install -y build-essential cmake git libspdlog-dev can-utils
-git clone --branch v0.7.0 https://github.com/aidinrobotics/aidin-hand2-sdk.git
+git clone --branch v0.8.0 https://github.com/aidinrobotics/aidin-hand2-sdk.git
 cd aidin-hand2-sdk
 ```
 
@@ -92,11 +92,11 @@ sudo ldconfig
 Check that the library is registered. On an arm64 PC the parentheses read `libc6,AArch64`.
 
 ```bash
-ldconfig -p | grep libaidin_hand2.so.0.7
+ldconfig -p | grep libaidin_hand2.so.0.8
 ```
 
 ```text
-	libaidin_hand2.so.0.7 (libc6,x86-64) => /usr/local/lib/libaidin_hand2.so.0.7
+	libaidin_hand2.so.0.8 (libc6,x86-64) => /usr/local/lib/libaidin_hand2.so.0.8
 ```
 
 The SDK tests and how to uninstall the SDK are in
@@ -223,7 +223,7 @@ When the web bridge cannot run, the window shows the reason and the web bridge's
 
 | Message | Action |
 |---|---|
-| `The AIDIN Hand SDK (libaidin_hand2) is not installed on this PC.` | The app did not find SDK 0.7.x. The message also appears when only another SDK version is installed. Finish [2.1 Install the SDK](#21-install-the-sdk) and start the app again |
+| `The AIDIN Hand SDK (libaidin_hand2) is not installed on this PC.` | The app did not find SDK 0.8.x. The message also appears when only another SDK version is installed. Finish [2.1 Install the SDK](#21-install-the-sdk) and start the app again |
 | `Another program holds the web bridge port.` | Another program uses port 26350. Find out which program it is with `sudo ss -ltnp \| grep 26350`.<ul><li>If the name after `users:` is `aidin_hand2_web`, a web bridge from an earlier run has hung. Run `kill <pid>` with the number after `pid=`, then start the app again. If the process does not end, use `kill -9 <pid>`</li><li>If it is another program that you need to keep running, start the app on another port from a terminal, for example `aidin-hand2-gui --port 26360`</li></ul> |
 | `The web bridge keeps stopping.` | The web bridge stopped five times in a row. The output in the window shows the cause |
 

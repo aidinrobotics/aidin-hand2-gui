@@ -6,7 +6,7 @@
 
 촉각 센서가 통합된 로봇 핸드 AIDIN Hand Gen2용 GUI입니다. SDK나 ROS 2를 통해 로봇 핸드에 연결합니다.
 
-[![SDK](https://img.shields.io/badge/SDK-0.7.x-blue)](https://github.com/aidinrobotics/aidin-hand2-sdk) [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)](#1-system-requirements)
+[![SDK](https://img.shields.io/badge/SDK-0.8.x-blue)](https://github.com/aidinrobotics/aidin-hand2-sdk) [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange)](#1-system-requirements)
 
 [Install](#2-install-the-dependencies) | [Tutorial](#4-tutorial) | [Official Site](https://www.aidinrobotics.co.kr/) | [English](README.md) | 한국어
 
@@ -35,7 +35,7 @@
 | Component | Requirement |
 |---|---|
 | Operating System | Ubuntu 22.04 (amd64 · arm64) |
-| SDK | [aidin-hand2-sdk](https://github.com/aidinrobotics/aidin-hand2-sdk) 0.7.x, `/usr/local`에 설치 |
+| SDK | [aidin-hand2-sdk](https://github.com/aidinrobotics/aidin-hand2-sdk) 0.8.x, `/usr/local`에 설치 |
 | CAN interface | USB CAN-FD adapter (SocketCAN), nominal 1 Mbit/s, data phase 5 Mbit/s |
 | ROS 2 (optional) | ROS 2 Humble, [aidin-hand2-ros2](https://github.com/aidinrobotics/aidin-hand2-ros2) |
 
@@ -50,12 +50,12 @@ ROS 2로 연결하는 PC와 로봇 핸드가 없는 PC도 마찬가지입니다.
 
 ### 2.1 Install the SDK
 
-SDK 빌드에 필요한 패키지를 설치하고 SDK 0.7 release를 받습니다.
+SDK 빌드에 필요한 패키지를 설치하고 SDK 0.8 release를 받습니다.
 
 ```bash
 sudo apt update
 sudo apt install -y build-essential cmake git libspdlog-dev can-utils
-git clone --branch v0.7.0 https://github.com/aidinrobotics/aidin-hand2-sdk.git
+git clone --branch v0.8.0 https://github.com/aidinrobotics/aidin-hand2-sdk.git
 cd aidin-hand2-sdk
 ```
 
@@ -89,11 +89,11 @@ sudo ldconfig
 라이브러리가 등록되었는지 확인합니다. arm64 PC에서는 괄호 안이 `libc6,AArch64`로 표시됩니다.
 
 ```bash
-ldconfig -p | grep libaidin_hand2.so.0.7
+ldconfig -p | grep libaidin_hand2.so.0.8
 ```
 
 ```text
-	libaidin_hand2.so.0.7 (libc6,x86-64) => /usr/local/lib/libaidin_hand2.so.0.7
+	libaidin_hand2.so.0.8 (libc6,x86-64) => /usr/local/lib/libaidin_hand2.so.0.8
 ```
 
 테스트와 제거 방법은 SDK의
@@ -217,7 +217,7 @@ web bridge를 실행하지 못하면 창에 사유와 web bridge의 출력이 �
 
 | Message | 조치 |
 |---|---|
-| `The AIDIN Hand SDK (libaidin_hand2) is not installed on this PC.` | SDK 0.7.x를 찾지 못했습니다. 다른 버전만 설치되어 있어도 이 메시지가 나옵니다. [2.1 Install the SDK](#21-install-the-sdk)를 마친 뒤 앱을 다시 실행합니다 |
+| `The AIDIN Hand SDK (libaidin_hand2) is not installed on this PC.` | SDK 0.8.x를 찾지 못했습니다. 다른 버전만 설치되어 있어도 이 메시지가 나옵니다. [2.1 Install the SDK](#21-install-the-sdk)를 마친 뒤 앱을 다시 실행합니다 |
 | `Another program holds the web bridge port.` | 다른 프로그램이 포트 26350을 쓰고 있습니다. `sudo ss -ltnp \| grep 26350`으로 어떤 프로그램인지 확인합니다.<ul><li>`users:` 뒤의 이름이 `aidin_hand2_web`이면 전에 실행한 web bridge가 멈춘 채 남아 있는 것입니다. `pid=` 뒤의 번호로 `kill <pid>`를 실행해 종료한 뒤 앱을 다시 실행합니다. 끝나지 않으면 `kill -9 <pid>`를 씁니다</li><li>계속 써야 하는 다른 프로그램이면 터미널에서 `aidin-hand2-gui --port 26360`처럼 앱을 다른 포트로 실행합니다</li></ul> |
 | `The web bridge keeps stopping.` | web bridge가 연달아 다섯 번 종료되었습니다. 창에 표시된 출력으로 원인을 확인합니다 |
 
